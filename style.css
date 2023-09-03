@@ -1,11 +1,11 @@
 body {
-    margin: 0;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: black;
+    flex-direction: column;
     overflow: hidden;
+    background-color: black;
 }
 
 .contenedor {
@@ -16,14 +16,37 @@ body {
 }
 
 .sol {
-    position: absolute;
-    top: 15em;
-    left: 15em;
-    width: 10em;
-    height: 10em;
-    background-color: yellow;
+    position: relative;
+    height: 200px;
+    width: 200px;
+    background-color: fuchsia;
+    background: radial-gradient(aqua, gold, fuchsia);
     border-radius: 50%;
-    box-shadow: 0 0 3em white;
+    animation: rotar 1.5s linear infinite;
+}
+
+.sol span {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    background: radial-gradient(aqua, gold, fuchsia);
+    border-radius: 50%;
+}
+
+span:nth-child(1) {
+    filter: blur(5px);
+}
+
+span:nth-child(2) {
+    filter: blur(10px);
+}
+
+span:nth-child(3) {
+    filter: blur(25px);
+}
+
+span:nth-child(4) {
+    filter: blur(150px);
 }
 
 .tierra, .luna {
@@ -70,6 +93,15 @@ body {
     width: 1.2em;
     height: 1.2em;
     background-color: silver;
+}
+
+@keyframes rotar {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
 }
 
 @keyframes orbita {
